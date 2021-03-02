@@ -1,3 +1,6 @@
+const barneySection = document.querySelector(".js-barney");
+const robinSection = document.querySelector(".js-robin");
+const wifeSection = document.querySelector(".js-wife");
 var canvas;
 var ctx;
 var FPS = 50;
@@ -33,21 +36,34 @@ function dibujaEscenario() {
 
   for (y = 0; y < 10; y++) {
     for (x = 0; x < 15; x++) {
-      if (escenario[y][x] == 0) color = pared;
+      // if (escenario[y][x] == 0) {
+      //   color = muro;
+      // }
 
-      if (escenario[y][x] == 2) color = tierra;
+      // if (escenario[y][x] == 2) {
+      //   color = tierra;
+      // }
 
-      if (escenario[y][x] == 3) color = llave;
+      // if (escenario[y][x] == 3) {
+      //   color = llave;
+      // }
 
       // ctx.fillStyle = color;
       // ctx.fillRect(x * anchoF, y * altoF, anchoF, altoF);
-      // var tile = escenario[y][x];
 
-      // ctx.drawImage(muro, tile * 50, 50, this.x * anchoF, this.y * altoF, anchoF, altoF);
+      //2
+      //   var tile = escenario[y][x];
+      //   ctx.drawImage(pared, tile * 90, 65, 50, 50, anchoF * x, altoF * y, anchoF, altoF);
+      // }
 
-      this.dibuja = function () {
-        ctx.drawImage(muro, this.x * anchoF, this.y * altoF, anchoF, altoF);
-      };
+      //7
+      //   var tile = escenario[y][x];
+      //   ctx.drawImage(pared, tile * 30, 80, 50, 50, anchoF * x, altoF * y, anchoF, altoF);
+      // }
+
+      //7
+      var tile = escenario[y][x];
+      ctx.drawImage(pared, tile * 45, 80, 30, 30, anchoF * x, altoF * y, anchoF, altoF);
     }
   }
 }
@@ -57,17 +73,17 @@ var jugador = function () {
   this.x = 1;
   this.y = 1;
   this.color = "#820c01";
-  this.llave = false;
+  this.wife = false;
 
   this.dibuja = function () {
     ctx.drawImage(ted, this.x * anchoF, this.y * altoF, anchoF, altoF);
   };
 
-  // this.colisionEnemigo = function (x, y) {
-  //   if (this.x == x && this.y == y) {
-  //     this.muerte();
-  //   }
-  // };
+  this.colisionEnemigo = function (x, y) {
+    if (this.x == x && this.y == y) {
+      this.victoria();
+    }
+  };
 
   this.margenes = function (x, y) {
     var colision = false;
@@ -108,28 +124,30 @@ var jugador = function () {
   };
 
   this.victoria = function () {
-    console.log("Has ganado!");
+    // barneySection.style.display = "flex";
+    // robinSection.style.display = "flex";
+    // wifeSection.style.display = "flex";
 
     this.x = 1;
     this.y = 1;
 
-    this.llave = false; //el jugador ya no tiene la llave
-    escenario[8][3] = 3; //volvemos a poner la llave en su sitio
+    this.wife = false; //el jugador ya no tiene la llave
+    escenario[11][3] = 3; //volvemos a poner la llave en su sitio
   };
 
   this.logicaObjetos = function () {
     var objeto = escenario[this.y][this.x];
 
-    //OBTIENE llave
+    //te encuntras con tu mujer
     if (objeto == 3) {
-      this.llave = true;
+      this.wife = true;
       escenario[this.y][this.x] = 2;
       console.log("Has obtenido la llave!!");
     }
 
     //ABRIMOS LA PUERTA
     if (objeto == 1) {
-      if (this.llave == true) this.victoria();
+      if (this.wife == true) this.victoria();
       else {
         console.log("No tienes la llave, no puedes pasar!");
       }
@@ -143,7 +161,7 @@ function inicializa() {
 
   //creamos la pared
   pared = new Image();
-  pared.src = "images/muro.png";
+  pared.src = "images/tilemap2.png";
 
   //creamos al protagonista
   protagonista = new jugador();
@@ -192,6 +210,20 @@ function borraCanvas() {
   canvas.width = 750;
   canvas.height = 500;
 }
+
+//////////////// close enemy /////////////
+function close() {
+  barneySection.style.display = "none";
+  // location.reload();
+}
+
+function closeButtons() {
+  const closeBtns = document.querySelectorAll(".js-buttons");
+  for (const closeBtn of closeBtns) {
+    closeBtn.addEventListener("click", close);
+  }
+}
+closeButtons();
 
 function principal() {
   borraCanvas();

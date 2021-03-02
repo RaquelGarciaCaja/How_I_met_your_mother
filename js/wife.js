@@ -1,6 +1,6 @@
 //wife
 var wife = function (x, y) {
-  this.x = 8;
+  this.x = 11;
   this.y = 3;
 
   this.direccion = Math.floor(Math.random() * 4);

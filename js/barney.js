@@ -1,8 +1,7 @@
 //enemigo barney
 var barney = function (x, y) {
-  this.x = 8;
-  this.y = 3;
-  // this.color = "#000000";
+  this.x = 3;
+  this.y = 7;
 
   this.direccion = Math.floor(Math.random() * 4);
   this.retraso = 20;
@@ -22,7 +21,7 @@ var barney = function (x, y) {
   };
 
   this.mueve = function () {
-    // protagonista.colisionEnemigo(this.x, this.y);
+    protagonista.colisionBarney(this.x, this.y);
 
     if (this.contador < this.retraso) {
       this.contador++;

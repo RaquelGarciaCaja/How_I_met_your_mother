@@ -1,7 +1,7 @@
-//wife
+//enemigo robin
 var wife = function (x, y) {
-  this.x = 11;
-  this.y = 3;
+  this.x = 7;
+  this.y = 5;
 
   this.direccion = Math.floor(Math.random() * 4);
   this.retraso = 20;
@@ -21,7 +21,7 @@ var wife = function (x, y) {
   };
 
   this.mueve = function () {
-    // protagonista.colisionEnemigo(this.x, this.y);
+    protagonista.colisionWife(this.x, this.y);
 
     if (this.contador < this.retraso) {
       this.contador++;

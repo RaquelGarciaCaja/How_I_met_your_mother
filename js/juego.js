@@ -8,10 +8,6 @@ var FPS = 50;
 var anchoF = 50;
 var altoF = 50;
 
-var muro = "#044f14";
-var puerta = "#3a1700";
-var tierra = "#c6892f";
-var llave = "#c6bc00";
 var pared;
 var barney;
 var wife;
@@ -32,35 +28,8 @@ var escenario = [
 ];
 
 function dibujaEscenario() {
-  var color;
-
   for (y = 0; y < 10; y++) {
     for (x = 0; x < 15; x++) {
-      // if (escenario[y][x] == 0) {
-      //   color = muro;
-      // }
-
-      // if (escenario[y][x] == 2) {
-      //   color = tierra;
-      // }
-
-      // if (escenario[y][x] == 3) {
-      //   color = llave;
-      // }
-
-      // ctx.fillStyle = color;
-      // ctx.fillRect(x * anchoF, y * altoF, anchoF, altoF);
-
-      //2
-      //   var tile = escenario[y][x];
-      //   ctx.drawImage(pared, tile * 90, 65, 50, 50, anchoF * x, altoF * y, anchoF, altoF);
-      // }
-
-      //7
-      //   var tile = escenario[y][x];
-      //   ctx.drawImage(pared, tile * 30, 80, 50, 50, anchoF * x, altoF * y, anchoF, altoF);
-      // }
-
       //7
       var tile = escenario[y][x];
       ctx.drawImage(pared, tile * 45, 80, 30, 30, anchoF * x, altoF * y, anchoF, altoF);
@@ -72,16 +41,27 @@ function dibujaEscenario() {
 var jugador = function () {
   this.x = 1;
   this.y = 1;
-  this.color = "#820c01";
   this.wife = false;
 
   this.dibuja = function () {
     ctx.drawImage(ted, this.x * anchoF, this.y * altoF, anchoF, altoF);
   };
 
-  this.colisionEnemigo = function (x, y) {
+  this.colisionBarney = function (x, y) {
     if (this.x == x && this.y == y) {
-      this.victoria();
+      barneySection.style.display = "flex";
+    }
+  };
+
+  this.colisionRobin = function (x, y) {
+    if (this.x == x && this.y == y) {
+      robinSection.style.display = "flex";
+    }
+  };
+
+  this.colisionWife = function (x, y) {
+    if (this.x == x && this.y == y) {
+      robinSection.style.display = "flex";
     }
   };
 
@@ -126,31 +106,21 @@ var jugador = function () {
   this.victoria = function () {
     // barneySection.style.display = "flex";
     // robinSection.style.display = "flex";
-    // wifeSection.style.display = "flex";
 
     this.x = 1;
     this.y = 1;
 
-    this.wife = false; //el jugador ya no tiene la llave
-    escenario[11][3] = 3; //volvemos a poner la llave en su sitio
+    escenario[13][8] = 3; //volvemos a poner la llave en su sitio
   };
 
   this.logicaObjetos = function () {
     var objeto = escenario[this.y][this.x];
 
-    //te encuntras con tu mujer
-    if (objeto == 3) {
+    //ted encuentras con tu mujer
+    if (objeto == escenario[13][8]) {
+      console.log("object");
       this.wife = true;
-      escenario[this.y][this.x] = 2;
-      console.log("Has obtenido la llave!!");
-    }
-
-    //ABRIMOS LA PUERTA
-    if (objeto == 1) {
-      if (this.wife == true) this.victoria();
-      else {
-        console.log("No tienes la llave, no puedes pasar!");
-      }
+      wifeSection.style.display = "flex";
     }
   };
 };
@@ -214,6 +184,9 @@ function borraCanvas() {
 //////////////// close enemy /////////////
 function close() {
   barneySection.style.display = "none";
+  robinSection.style.display = "none";
+  wifeSection.style.display = "none";
+
   // location.reload();
 }
 

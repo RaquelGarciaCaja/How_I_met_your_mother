@@ -1,7 +1,7 @@
 //enemigo robin
 var robin = function (x, y) {
-  this.x = 10;
-  this.y = 5;
+  this.x = 9;
+  this.y = 8;
 
   this.direccion = Math.floor(Math.random() * 4);
   this.retraso = 20;
@@ -21,7 +21,7 @@ var robin = function (x, y) {
   };
 
   this.mueve = function () {
-    // protagonista.colisionEnemigo(this.x, this.y);
+    protagonista.colisionRobin(this.x, this.y);
 
     if (this.contador < this.retraso) {
       this.contador++;

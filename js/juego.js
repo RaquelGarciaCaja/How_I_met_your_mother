@@ -59,15 +59,23 @@ var jugador = function () {
     }
   };
 
-  this.colisionWife = function (x, y) {
+  this.winWife = function (x, y) {
+    console.log("object");
     if (this.x == x && this.y == y) {
-      robinSection.style.display = "flex";
+      wifeSection.style.display = "flex";
     }
+    // var objeto = escenario[this.y][this.x];
+
+    // //ted se encuentra con tu mujer
+    // if (objeto == escenario[7][5]) {
+    //   console.log("object");
+    //   this.wife = true;
+    //   wifeSection.style.display = "flex";
+    // }
   };
 
   this.margenes = function (x, y) {
     var colision = false;
-
     if (escenario[y][x] == 0) {
       colision = true;
     }
@@ -78,51 +86,40 @@ var jugador = function () {
   this.arriba = function () {
     if (this.margenes(this.x, this.y - 1) == false) {
       this.y--;
-      this.logicaObjetos();
+      // this.logicaObjetos();
     }
   };
 
   this.abajo = function () {
     if (this.margenes(this.x, this.y + 1) == false) {
       this.y++;
-      this.logicaObjetos();
+      // this.logicaObjetos();
     }
   };
 
   this.izquierda = function () {
     if (this.margenes(this.x - 1, this.y) == false) {
       this.x--;
-      this.logicaObjetos();
+      // this.logicaObjetos();
     }
   };
 
   this.derecha = function () {
     if (this.margenes(this.x + 1, this.y) == false) {
       this.x++;
-      this.logicaObjetos();
+      // this.logicaObjetos();
     }
   };
 
-  this.victoria = function () {
-    // barneySection.style.display = "flex";
-    // robinSection.style.display = "flex";
+  // this.logicaObjetos = function () {
 
-    this.x = 1;
-    this.y = 1;
-
-    escenario[13][8] = 3; //volvemos a poner la llave en su sitio
-  };
-
-  this.logicaObjetos = function () {
-    var objeto = escenario[this.y][this.x];
-
-    //ted encuentras con tu mujer
-    if (objeto == escenario[13][8]) {
-      console.log("object");
-      this.wife = true;
-      wifeSection.style.display = "flex";
-    }
-  };
+  //   //ted se encuentra con tu mujer
+  //   if () {
+  //     console.log("object");
+  //     this.wife = true;
+  //     wifeSection.style.display = "flex";
+  //   }
+  // };
 };
 
 function inicializa() {
@@ -186,8 +183,7 @@ function close() {
   barneySection.style.display = "none";
   robinSection.style.display = "none";
   wifeSection.style.display = "none";
-
-  // location.reload();
+  location.reload();
 }
 
 function closeButtons() {
@@ -196,6 +192,7 @@ function closeButtons() {
     closeBtn.addEventListener("click", close);
   }
 }
+
 closeButtons();
 
 function principal() {

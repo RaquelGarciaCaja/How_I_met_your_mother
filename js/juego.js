@@ -60,18 +60,9 @@ var jugador = function () {
   };
 
   this.winWife = function (x, y) {
-    console.log("object");
     if (this.x == x && this.y == y) {
       wifeSection.style.display = "flex";
     }
-    // var objeto = escenario[this.y][this.x];
-
-    // //ted se encuentra con tu mujer
-    // if (objeto == escenario[7][5]) {
-    //   console.log("object");
-    //   this.wife = true;
-    //   wifeSection.style.display = "flex";
-    // }
   };
 
   this.margenes = function (x, y) {
@@ -86,40 +77,26 @@ var jugador = function () {
   this.arriba = function () {
     if (this.margenes(this.x, this.y - 1) == false) {
       this.y--;
-      // this.logicaObjetos();
     }
   };
 
   this.abajo = function () {
     if (this.margenes(this.x, this.y + 1) == false) {
       this.y++;
-      // this.logicaObjetos();
     }
   };
 
   this.izquierda = function () {
     if (this.margenes(this.x - 1, this.y) == false) {
       this.x--;
-      // this.logicaObjetos();
     }
   };
 
   this.derecha = function () {
     if (this.margenes(this.x + 1, this.y) == false) {
       this.x++;
-      // this.logicaObjetos();
     }
   };
-
-  // this.logicaObjetos = function () {
-
-  //   //ted se encuentra con tu mujer
-  //   if () {
-  //     console.log("object");
-  //     this.wife = true;
-  //     wifeSection.style.display = "flex";
-  //   }
-  // };
 };
 
 function inicializa() {
@@ -201,6 +178,7 @@ function principal() {
 
   //protagosnista wife
   protagonistaWife.dibuja();
+  protagonistaWife.mueve();
 
   //protagosnista
   protagonista.dibuja();

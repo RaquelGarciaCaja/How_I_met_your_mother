@@ -17,6 +17,7 @@ var robin;
 var lili;
 var marshal;
 var protagonista;
+var time;
 
 var escenario = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -52,34 +53,40 @@ var jugador = function () {
 
   this.colisionBarney = function (x, y) {
     if (this.x == x && this.y == y) {
+      this.noMovimiento();
       barneySection.style.display = "flex";
     }
   };
 
   this.colisionRobin = function (x, y) {
     if (this.x == x && this.y == y) {
+      this.noMovimiento();
       robinSection.style.display = "flex";
     }
   };
   this.colisionLili = function (x, y) {
     if (this.x == x && this.y == y) {
+      this.noMovimiento();
       liliSection.style.display = "flex";
     }
   };
   this.colisionMarshal = function (x, y) {
     if (this.x == x && this.y == y) {
+      this.noMovimiento();
       marshalSection.style.display = "flex";
     }
   };
   this.winWife = function (x, y) {
     if (this.x == x && this.y == y) {
+      this.noMovimiento();
       wifeSection.style.display = "flex";
     }
   };
 
   this.noMovimiento = function (x, y) {
-    clearInterval(100000000000000000);
+    clearInterval(time);
   };
+
   this.margenes = function (x, y) {
     var colision = false;
     if (escenario[y][x] == 0) {
@@ -168,7 +175,7 @@ function inicializa() {
     }
   });
 
-  setInterval(function () {
+  time = setInterval(function () {
     principal();
   }, 1000 / FPS);
 }

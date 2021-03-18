@@ -21,9 +21,7 @@ var lili = function (x, y) {
   };
 
   this.mueve = function () {
-    if (protagonista.colisionLili(this.x, this.y)) {
-      this.retraso = 1000000000000000;
-    }
+    protagonista.colisionLili(this.x, this.y);
 
     if (this.contador < this.retraso) {
       this.contador++;

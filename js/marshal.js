@@ -1,14 +1,14 @@
 //enemigo marshal
 var marshal = function (x, y) {
   this.x = 9;
-  this.y = 5;
+  this.y = 8;
 
   this.direccion = Math.floor(Math.random() * 4);
-  this.retraso = 15;
+  this.retraso = 17;
   this.fotograma = 0;
 
   this.dibuja = function () {
-    ctx.drawImage(marshal, this.x * anchoF, this.y * altoF, anchoF, altoF);
+    ctx.drawImage(marshal, this.x * anchoF, this.y * altoF, 50, 50);
   };
 
   this.compruebaColision = function (x, y) {

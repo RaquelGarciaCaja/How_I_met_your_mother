@@ -77,6 +77,9 @@ var jugador = function () {
     }
   };
 
+  this.noMovimiento = function (x, y) {
+    clearInterval(100000000000000000);
+  };
   this.margenes = function (x, y) {
     var colision = false;
     if (escenario[y][x] == 0) {
@@ -180,6 +183,8 @@ function close() {
   barneySection.style.display = "none";
   robinSection.style.display = "none";
   wifeSection.style.display = "none";
+  liliSection.style.display = "none";
+  marshalSection.style.display = "none";
   location.reload();
 }
 

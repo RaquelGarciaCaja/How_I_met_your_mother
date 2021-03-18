@@ -8,7 +8,7 @@ var lili = function (x, y) {
   this.fotograma = 0;
 
   this.dibuja = function () {
-    ctx.drawImage(lili, this.x * anchoF, this.y * altoF, anchoF, altoF);
+    ctx.drawImage(lili, this.x * anchoF, this.y * altoF, 50, 50);
   };
 
   this.compruebaColision = function (x, y) {
@@ -21,7 +21,9 @@ var lili = function (x, y) {
   };
 
   this.mueve = function () {
-    protagonista.colisionLili(this.x, this.y);
+    if (protagonista.colisionLili(this.x, this.y)) {
+      this.retraso = 1000000000000000;
+    }
 
     if (this.contador < this.retraso) {
       this.contador++;

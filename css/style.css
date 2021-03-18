@@ -3,25 +3,27 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 .header {
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: "Roboto", sans-serif;
-  padding: 20px;
+  padding: 5px;
 }
 .header__containerImg {
 }
 
 .header__img {
-  height: 100px;
+  height: 60px;
 }
 .header__title {
   font-size: 40px;
 }
 
-.canvas {
-  text-align: center;
+.main {
+  display: flex;
+  justify-content: center;
 }
 
 .container {
@@ -66,9 +68,9 @@
 }
 
 .footer {
-  padding: 10px;
   display: flex;
   justify-content: space-evenly;
+  padding-bottom: 5px;
 }
 
 .footer--icons {

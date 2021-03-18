@@ -1,14 +1,14 @@
-//enemigo robin
-var robin = function (x, y) {
-  this.x = 9;
-  this.y = 8;
+//enemigo barney
+var lili = function (x, y) {
+  this.x = 10;
+  this.y = 3;
 
   this.direccion = Math.floor(Math.random() * 4);
-  this.retraso = 10;
+  this.retraso = 15;
   this.fotograma = 0;
 
   this.dibuja = function () {
-    ctx.drawImage(robin, this.x * anchoF, this.y * altoF, anchoF, altoF);
+    ctx.drawImage(lili, this.x * anchoF, this.y * altoF, anchoF, altoF);
   };
 
   this.compruebaColision = function (x, y) {
@@ -21,7 +21,7 @@ var robin = function (x, y) {
   };
 
   this.mueve = function () {
-    protagonista.colisionRobin(this.x, this.y);
+    protagonista.colisionLili(this.x, this.y);
 
     if (this.contador < this.retraso) {
       this.contador++;

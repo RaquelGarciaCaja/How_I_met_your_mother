@@ -4,7 +4,7 @@ var wife = function (x, y) {
   this.y = 5;
 
   this.direccion = Math.floor(Math.random() * 4);
-  this.retraso = 20;
+  this.retraso = 15;
   this.fotograma = 0;
 
   this.dibuja = function () {

@@ -1,10 +1,10 @@
 //enemigo barney
 var barney = function (x, y) {
-  this.x = 3;
-  this.y = 7;
+  this.x = 7;
+  this.y = 3;
 
   this.direccion = Math.floor(Math.random() * 4);
-  this.retraso = 20;
+  this.retraso = 15;
   this.fotograma = 0;
 
   this.dibuja = function () {

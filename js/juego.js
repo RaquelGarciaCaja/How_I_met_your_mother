@@ -1,6 +1,8 @@
 const barneySection = document.querySelector(".js-barney");
 const robinSection = document.querySelector(".js-robin");
 const wifeSection = document.querySelector(".js-wife");
+const liliSection = document.querySelector(".js-lili");
+const marshalSection = document.querySelector(".js-marshal");
 var canvas;
 var ctx;
 var FPS = 50;
@@ -12,18 +14,20 @@ var pared;
 var barney;
 var wife;
 var robin;
+var lili;
+var marshal;
 var protagonista;
 
 var escenario = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 2, 2, 0, 0, 0, 2, 2, 2, 2, 0, 0, 2, 2, 0],
   [0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 2, 0, 0],
-  [0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0],
-  [0, 2, 2, 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0],
+  [0, 2, 2, 0, 2, 2, 2, 2, 0, 2, 2, 2, 2, 0, 0],
+  [0, 2, 2, 2, 0, 0, 0, 2, 0, 2, 0, 2, 0, 0, 0],
   [0, 2, 2, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0],
   [0, 0, 2, 0, 0, 2, 2, 2, 2, 0, 0, 2, 2, 2, 0],
   [0, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 0, 0, 2, 0],
-  [0, 2, 2, 2, 2, 2, 2, 0, 0, 2, 2, 2, 2, 2, 0],
+  [0, 0, 2, 2, 2, 2, 2, 0, 0, 2, 2, 2, 2, 2, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
 
@@ -41,7 +45,6 @@ function dibujaEscenario() {
 var jugador = function () {
   this.x = 1;
   this.y = 1;
-  this.wife = false;
 
   this.dibuja = function () {
     ctx.drawImage(ted, this.x * anchoF, this.y * altoF, anchoF, altoF);
@@ -58,7 +61,16 @@ var jugador = function () {
       robinSection.style.display = "flex";
     }
   };
-
+  this.colisionLili = function (x, y) {
+    if (this.x == x && this.y == y) {
+      liliSection.style.display = "flex";
+    }
+  };
+  this.colisionMarshal = function (x, y) {
+    if (this.x == x && this.y == y) {
+      marshalSection.style.display = "flex";
+    }
+  };
   this.winWife = function (x, y) {
     if (this.x == x && this.y == y) {
       wifeSection.style.display = "flex";
@@ -125,6 +137,14 @@ function inicializa() {
   enemigoRobin = new robin();
   robin = new Image();
   robin.src = "images/robin.jpg";
+  //
+  enemigoLili = new lili();
+  lili = new Image();
+  lili.src = "images/lili.png";
+  //
+  enemigoMarshal = new marshal();
+  marshal = new Image();
+  marshal.src = "images/marshal.png";
 
   //LECTURA DEL TECLADO
   document.addEventListener("keydown", function (tecla) {
@@ -188,4 +208,8 @@ function principal() {
   enemigoBarney.mueve();
   enemigoRobin.dibuja();
   enemigoRobin.mueve();
+  enemigoLili.dibuja();
+  enemigoLili.mueve();
+  enemigoMarshal.dibuja();
+  enemigoMarshal.mueve();
 }

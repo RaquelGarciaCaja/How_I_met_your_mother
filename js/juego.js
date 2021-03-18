@@ -161,7 +161,7 @@ function game() {
   //
   enemigoRobin = new robin();
   robin = new Image();
-  robin.src = "images/robin.jpg";
+  robin.src = "images/robin.png";
   //
   enemigoLili = new lili();
   lili = new Image();

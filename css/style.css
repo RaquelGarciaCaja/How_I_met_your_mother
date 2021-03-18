@@ -72,6 +72,10 @@
   cursor: pointer;
 }
 
+.container__img {
+  height: 80px;
+}
+
 .footer {
   display: flex;
   justify-content: space-evenly;

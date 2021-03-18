@@ -1,1 +1,6 @@
-# How_I_met_your_mother
+### How I Met Your Mother
+
+
+Objetivo: Haz que Ted Mosby encuentre a su mujer sin chocar con sus amigos.
+
+Herramientas usadas: JavaScript, HTML, CSS y canvas.

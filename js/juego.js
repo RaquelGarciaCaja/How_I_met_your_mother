@@ -3,6 +3,7 @@ const robinSection = document.querySelector(".js-robin");
 const wifeSection = document.querySelector(".js-wife");
 const liliSection = document.querySelector(".js-lili");
 const marshalSection = document.querySelector(".js-marshal");
+const introConainter = document.querySelector(".js-containerIntro");
 var canvas;
 var ctx;
 var FPS = 50;
@@ -19,6 +20,18 @@ var marshal;
 var protagonista;
 var time;
 
+//funcion inicial
+function inicializa() {
+  const canvas = document.querySelector(".js-canvas");
+  const buttonIntro = document.querySelector(".js-buttonIntro");
+  buttonIntro.addEventListener("click", () => {
+    introConainter.style.display = "none";
+    canvas.style.display = "flex";
+    game();
+  });
+}
+
+// escenario
 var escenario = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 2, 2, 0, 0, 0, 2, 2, 2, 2, 0, 0, 2, 2, 0],
@@ -32,6 +45,7 @@ var escenario = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
 
+//funcion dibuja el esceario
 function dibujaEscenario() {
   for (y = 0; y < 10; y++) {
     for (x = 0; x < 15; x++) {
@@ -121,7 +135,8 @@ var jugador = function () {
   };
 };
 
-function inicializa() {
+//funcion del juego
+function game() {
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
 

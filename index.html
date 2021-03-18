@@ -14,7 +14,7 @@
     <script src="https://kit.fontawesome.com/e9c34022b4.js" crossorigin="anonymous"></script>
   </head>
 
-  <body onload="inicializa()">
+  <body onload="inicializa()" class="page">
     <header class="header">
       <div class="header__container">
         <h1 class="header__title">How I Met Your Mother</h1>
@@ -22,33 +22,17 @@
           <img class="header__img" src="images/ted.jpg" alt="" />
         </div>
       </div>
-      <p class="header__p">Haz que Ted encuentre a su mujer</p>
     </header>
-    <!-- <footer class="footer">
-      <a href="raquelgc8@gmail.com" class="footer--social" target="_blank" title="Email">
-        <i class="far fa-envelope footer--icons"></i>
-      </a>
 
-      <a
-        href="https://www.linkedin.com/in/raquelgarciacaja/"
-        class="js-icon-linkedin footer--social"
-        target="_blank"
-        title="Linkedin"
-      >
-        <i class="footer--icons fab fa-linkedin-in"></i>
-      </a>
-      <a
-        href="https://github.com/RaquelGarciaCaja"
-        class="js-icon-github footer--social"
-        target="_blank"
-        title="Github"
-      >
-        <i class="footer--icons fab fa-github-alt"></i>
-      </a>
-    </footer> -->
+    <section class="section__containerIntro js-containerIntro">
+      <div class="section__container">
+        <h3 class="section__text">Haz que Ted encuentre a su mujer</h3>
+        <button class="section__button js-buttonIntro">Empezar</button>
+      </div>
+    </section>
     <main class="main">
       <canvas
-        class="canvas"
+        class="canvas js-canvas"
         id="canvas"
         width="750"
         height="500"
@@ -62,7 +46,7 @@
           <img class="container__img" src="images/barney2.jpg" alt="Foto Barney" />
         </div>
         <div class="container__containerText">
-          <h1 class="container__title">Te has encontrado con Barney y decidis iros a ligar</h1>
+          <h1 class="container__title">Te has encontrado con Barney y decidís iros a ligar</h1>
           <i class="container__icon fas fa-glass-cheers"></i>
         </div>
         <button class="container__button js-buttons">Aceptar</button>
@@ -75,9 +59,7 @@
           <img class="container__img" src="images/robin.jpg" alt="Foto Robin" />
         </div>
         <div class="container__containerText">
-          <h1 class="container__title">
-            Te has encontrado con Robin y te vuelves a enamorar de ELLA, otra vez!!!!
-          </h1>
+          <h1 class="container__title">Te vuelves a enamorar de Robin, otra vez!!!!</h1>
           <i class="container__icon fas fa-kiss-wink-heart"></i>
         </div>
         <button class="container__button js-buttons">Aceptar</button>
@@ -104,7 +86,7 @@
         </div>
         <div class="container__containerText">
           <h1 class="container__title">
-            Marshall te convence para ver, por undecima, vez Star Wars
+            Marshall te convence para ver, por vigésima vez, Star Wars
           </h1>
           <i class="container__icon fas fa-jedi"></i>
         </div>
@@ -118,7 +100,7 @@
           <img class="container__img" src="images/wife.png" alt="Foto mujer" />
         </div>
         <div class="container__containerText">
-          <h1 class="container__title">Has encontrado a tu mujer, yuju</h1>
+          <h1 class="container__title">Has encontrado a tu mujer, al fin!!</h1>
           <i class="container__icon fas fa-heart"></i>
         </div>
         <button class="container__button js-buttons">Aceptar</button>

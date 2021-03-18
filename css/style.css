@@ -2,6 +2,18 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.page::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  top: 0;
+  opacity: 0.75;
+  height: 100%;
+  background-image: url("../images/fondoo.jpg");
+  background-position: center;
 }
 
 .header {
@@ -9,26 +21,68 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  font-family: "Roboto", sans-serif;
+  position: relative;
 }
 
-.header__p {
-  font-family: "Roboto", sans-serif;
+.header__containerIntro {
+  display: none;
 }
+
 .header__img {
-  height: 80px;
+  height: 90px;
 }
 .header__title {
-  font-size: 30px;
+  font-size: 40px;
 }
 
 .header__container {
   display: flex;
   align-items: center;
 }
+
+/* section intro */
+.section__containerIntro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+}
+
+.section__container {
+  padding: 30px;
+  background-color: rgb(202, 202, 33);
+  border: 2px black solid;
+  color: black;
+  text-align: center;
+}
+
+.section__button {
+  padding: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.section__text {
+  padding-bottom: 10px;
+}
+/* main and canvas */
 .main {
   display: flex;
   justify-content: center;
+  position: relative;
+}
+.canvas {
+  display: none;
+  -webkit-box-shadow: 0px 0px 22px 8px rgba(0, 0, 0, 0.63);
+  box-shadow: 0px 0px 22px 8px rgba(0, 0, 0, 0.63);
 }
 
 .container {
@@ -74,23 +128,4 @@
 
 .container__img {
   height: 80px;
-}
-
-.footer {
-  display: flex;
-  justify-content: space-evenly;
-  padding-bottom: 5px;
-}
-
-.footer--icons {
-  font-size: 15px;
-  color: black;
-  border-radius: 50%;
-  border: 2px solid black;
-  padding: 5px 5px;
-  transition: 1s;
-}
-.footer--icons:hover {
-  transition: 1s;
-  background-color: yellow;
 }
